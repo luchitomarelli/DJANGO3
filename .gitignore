@@ -1,0 +1,25 @@
+# Ignorar archivos de Python compilados
+*.pyc
+*.pyo
+*.pyd
+
+# Ignorar directorios de caché de Python
+__pycache__/
+
+# Ignorar base de datos SQLite
+db.sqlite3
+
+# Ignorar archivos de log
+*.log
+
+# Ignorar archivos de configuración de Django
+*.pot
+
+# Ignorar archivos temporales y de respaldo
+*.bak
+*.swp
+
+# Ignorar archivos de base de datos adicionales
+*.db
+*.db-journal
+*.sqlite3

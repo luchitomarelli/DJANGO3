@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar Compra</title>
+</head>
+<body>
+
+    <h1>Eliminar una Compra</h1>
+
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+   
+    <form method="POST">
+        {% csrf_token %}
+        <label for="nro_factura">Número de Factura:</label>
+        <input type="text" name="nro_factura" required>
+        
+        <label for="razon_social">Razón Social:</label>
+        <input type="text" name="razon_social" required>
+        
+        <label for="cuit">CUIT:</label>
+        <input type="text" name="cuit" required>
+        
+        <button type="submit">Eliminar Compra</button>
+    </form>
+
+    <hr>
+
+  
+    <h2>Lista de Compras</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nro. de Factura</th>
+                <th>Fecha</th>
+                <th>Razón Social</th>
+                <th>CUIT</th>
+                <th>Importe</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for compra in compras %}
+                <tr>
+                    <td>{{ compra.nro_factura }}</td>
+                    <td>{{ compra.fecha }}</td>
+                    <td>{{ compra.razon_social }}</td>
+                    <td>{{ compra.cuit }}</td>
+                    <td>${{ compra.importe }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>

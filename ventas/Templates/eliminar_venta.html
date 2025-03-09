@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar Venta</title>
+</head>
+<body>
+    <h1>Eliminar una Venta</h1>
+
+    {% if messages %}
+        <div>
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Eliminar Venta</button>
+    </form>
+
+    <h2>Ventas Registradas</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nro Factura</th>
+                <th>CUIT</th>
+                <th>Apellido</th>
+                <th>Importe</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for venta in ventas %}
+                <tr>
+                    <td>{{ venta.nro_factura }}</td>
+                    <td>{{ venta.cuit }}</td>
+                    <td>{{ venta.apellido }}</td>
+                    <td>{{ venta.importe }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Inicio</title>
+</head>
+<body>
+  
+    <h1>Bienvenido al sistema</h1>
+    
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <section>
+        <h2>Gestión de Clientes</h2>
+        <ul>
+            <li><a href="{% url 'lista_clientes' %}">Ver lista de clientes en formato JSON</a></li>
+            <li><a href="{% url 'agregar_cliente' %}">Agregar un nuevo cliente</a></li>
+            <li><a href="{% url 'eliminar_cliente' %}">Eliminar un cliente</a></li>
+        </ul>
+    </section>
+
+    <hr> 
+
+    <section>
+        <h2>Gestión de Productos</h2>
+        <ul>
+            <li><a href="{% url 'lista_productos' %}">Ver lista de productos en formato JSON</a></li>
+            <li><a href="{% url 'agregar_producto' %}">Agregar un nuevo producto</a></li>
+            <li><a href="{% url 'eliminar_producto' %}">Eliminar un producto</a></li>
+        </ul>
+    </section>
+
+    <hr> 
+
+    <section>
+        <h2>Gestión de Ventas</h2>
+        <ul>
+            <li><a href="{% url 'lista_ventas' %}">Ver lista de ventas en formato JSON</a></li>
+            <li><a href="{% url 'agregar_venta' %}">Agregar una nueva venta</a></li>
+            <li><a href="{% url 'eliminar_venta' %}">Eliminar una venta</a></li>
+        </ul>
+    </section>
+
+    <hr> 
+
+    <section>
+        <h2>Gestión de Proveedores</h2>
+        <ul>
+            <li><a href="{% url 'lista_proveedores' %}">Ver lista de proveedores en formato JSON</a></li>
+            <li><a href="{% url 'agregar_proveedor' %}">Agregar un nuevo proveedor</a></li>
+            <li><a href="{% url 'eliminar_proveedor' %}">Eliminar un proveedor</a></li>
+        </ul>
+    </section>
+
+    <hr> 
+
+    <section>
+        <h2>Gestión de Compras</h2>
+        <ul>
+            <li><a href="{% url 'lista_compras_json' %}">Ver lista de compras en formato JSON</a></li>
+            <li><a href="{% url 'agregar_compra' %}">Agregar una nueva compra</a></li>
+            <li><a href="{% url 'eliminar_compra' %}">Eliminar una compra</a></li>
+        </ul>
+    </section>
+
+    <hr> 
+
+    <section>
+        <h2>Panel de Administración</h2>
+        <ul>
+            <li><a href="/admin" target="_blank">Ir al Panel de Administración</a></li>
+        </ul>
+    </section>
+
+</body>
+</html>

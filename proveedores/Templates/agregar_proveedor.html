@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Proveedor</title>
+</head>
+<body>
+
+<h1>Agregar un Nuevo Proveedor</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar Proveedor</button>
+</form>
+
+<p><a href="{% url 'lista_proveedores' %}">Ver lista de proveedores</a></p>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar Proveedor</title>
+</head>
+<body>
+
+    <h1>Eliminar Proveedor</h1>
+
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        <label for="cuit">CUIT:</label>
+        <input type="text" id="cuit" name="cuit" required>
+        <br><br>
+        <label for="razon_social">Razón Social:</label>
+        <input type="text" id="razon_social" name="razon_social" required>
+        <br><br>
+        <button type="submit">Eliminar Proveedor</button>
+    </form>
+
+    <h2>Lista de Proveedores</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>CUIT</th>
+                <th>Razón Social</th>
+                <th>Dirección</th>
+                <th>Teléfono</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for proveedor in proveedores %}
+                <tr>
+                    <td>{{ proveedor.cuit }}</td>
+                    <td>{{ proveedor.razon_social }}</td>
+                    <td>{{ proveedor.direccion }}</td>
+                    <td>{{ proveedor.telefono }}</td>
+                    <td>{{ proveedor.email }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>

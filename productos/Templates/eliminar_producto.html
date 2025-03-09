@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar Producto</title>
+</head>
+<body>
+    <h1>Eliminar Producto</h1>
+
+    
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    
+    <form method="POST">
+        {% csrf_token %}
+        <label for="codigo_producto">Código de producto:</label>
+        <input type="text" id="codigo_producto" name="codigo_producto" required>
+        <button type="submit">Eliminar producto</button>
+    </form>
+
+    <p><a href="{% url 'lista_productos' %}">Ver lista de productos</a></p>
+    <p><a href="{% url 'agregar_producto' %}">Agregar un nuevo producto</a></p>
+</body>
+</html>

@@ -7,7 +7,7 @@ class CompraForm(forms.ModelForm):
         model = Compra
         fields = ['nro_factura', 'fecha', 'razon_social', 'cuit', 'importe']
 
-    def clean(self):
+def clean(self):
         cleaned_data = super().clean()
         cuit = cleaned_data.get('cuit')
         razon_social = cleaned_data.get('razon_social')

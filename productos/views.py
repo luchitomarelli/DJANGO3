@@ -4,19 +4,9 @@ from .models import Producto
 from .forms import ProductoForm
 from django.contrib import messages
 
-
-
 def lista_productos(request):
-   
-    productos = Producto.objects.all().values('nombre', 'descripcion', 'precio', 'stock', 'codigo_producto')
-  
-    return JsonResponse(list(productos), safe=False)
-
-from django.shortcuts import render, redirect
-from .forms import ProductoForm
-
-
-
+   productos = Producto.objects.all().values('nombre', 'descripcion', 'precio', 'stock', 'codigo_producto')
+   return JsonResponse(list(productos), safe=False)
 
 def agregar_producto(request):
     if request.method == 'POST':
@@ -26,11 +16,7 @@ def agregar_producto(request):
             return redirect('lista_productos') 
     else:
         form = ProductoForm()
-
-    return render(request, 'agregar_producto.html', {'form': form})
-
-
-
+        return render(request, 'agregar_producto.html', {'form': form})
 
 def eliminar_producto(request):
     if request.method == 'POST':

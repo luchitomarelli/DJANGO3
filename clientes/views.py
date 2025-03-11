@@ -4,18 +4,12 @@ from django.http import JsonResponse
 from .models import Cliente
 from .forms import ClienteForm
 
-
-
 def home(request):
     return render(request, 'home.html')
-
-
 
 def lista_clientes(request):
     clientes = Cliente.objects.all().values('cuit', 'nombre', 'apellido', 'telefono', 'email')
     return JsonResponse(list(clientes), safe=False)
-
-
 
 def agregar_cliente(request):
     if request.method == 'POST':
@@ -26,9 +20,6 @@ def agregar_cliente(request):
     else:
         form = ClienteForm()
     return render(request, 'agregar_cliente.html', {'form': form})
-
-
-
 
 def eliminar_cliente(request):
     if request.method == 'POST':

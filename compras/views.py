@@ -4,8 +4,6 @@ from .forms import CompraForm
 from .models import Compra
 from django.http import JsonResponse
 
-
-
 def agregar_compra(request):
     if request.method == 'POST':
         form = CompraForm(request.POST)
@@ -20,20 +18,13 @@ def agregar_compra(request):
 
     return render(request, 'agregar_compra.html', {'form': form})
 
-
-
 def lista_compras(request):
     compras = Compra.objects.all()
     return render(request, 'lista_compras.html', {'compras': compras})
 
-
-
 def lista_compras_json(request):
     compras = Compra.objects.all().values('nro_factura', 'fecha', 'razon_social', 'cuit', 'importe')
     return JsonResponse(list(compras), safe=False)
-
-
-
 
 def eliminar_compra(request):
     if request.method == 'POST':
